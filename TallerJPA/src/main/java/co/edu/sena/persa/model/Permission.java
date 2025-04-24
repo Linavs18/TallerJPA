@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author alejo
+ * @author USUARIO
  */
 @Entity
 @Table(name = "permission")
