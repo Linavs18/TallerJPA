@@ -21,8 +21,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
- * @author USUARIO
+ *Date:24/04/2025
+ * @author alejo
+ * Objetive: representa la tabla permission
  */
 @Entity
 @Table(name = "permission")

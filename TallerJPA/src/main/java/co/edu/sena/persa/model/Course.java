@@ -21,8 +21,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
- *
- * @author USUARIO
+ *Date:24/04/2025
+ * @author alejo
+ * Objetive: representa la tabla course
  */
 @Entity
 @Table(name = "course")
