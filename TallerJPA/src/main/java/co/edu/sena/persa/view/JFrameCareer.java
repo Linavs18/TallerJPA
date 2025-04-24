@@ -5,16 +5,13 @@
 package co.edu.sena.persa.view;
 
 /**
- * Fecha: 24/04/2025
- * @author Aprendices: Juan Sebastian Rodriguez Cruz
- *                                     Lina Vanessa Salcedo Cuellar
- *                                     Manuel Alejandro Ocampo Saya
- * Obejtivo: Diseño de los JFrames del proyecto PERSA
+ *
+ * @author Aprendiz
  */
 public class JFrameCareer extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFrameCareer
+     * Creates new form CareerJFrame
      */
     public JFrameCareer() {
         initComponents();
@@ -29,61 +26,249 @@ public class JFrameCareer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelCareer = new javax.swing.JPanel();
-        jLabelHomeIcon = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabelTitle = new javax.swing.JLabel();
+        jLabelID = new javax.swing.JLabel();
+        jTextFieldId = new javax.swing.JTextField();
+        jLabelName = new javax.swing.JLabel();
+        jTextFieldName = new javax.swing.JTextField();
+        jLabelType = new javax.swing.JLabel();
+        jTextFieldType = new javax.swing.JTextField();
+        jButtonInsert = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
+        jButtonUpdate = new javax.swing.JButton();
+        jButtonClear = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanelCareer.setBackground(new java.awt.Color(0, 204, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 102));
 
-        jLabelHomeIcon.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelHomeIcon.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelHomeIcon.setIcon(new javax.swing.ImageIcon("D:\\repos\\TallerJPA\\TallerJPA\\resources\\home.png")); // NOI18N
-        jLabelHomeIcon.setText("HOME");
-        jLabelHomeIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelHomeIcon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelHomeIconMouseClicked(evt);
+        jLabelTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitle.setText("CARRERA");
+
+        jLabelID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelID.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelID.setText("Id:");
+
+        jTextFieldId.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldId.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabelName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelName.setText("Nombre:");
+
+        jTextFieldName.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldName.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabelType.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelType.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelType.setText("Tipo:");
+
+        jTextFieldType.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldType.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jButtonInsert.setBackground(new java.awt.Color(51, 204, 0));
+        jButtonInsert.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonInsert.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonInsert.setText("Crear");
+        jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInsertActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanelCareerLayout = new javax.swing.GroupLayout(jPanelCareer);
-        jPanelCareer.setLayout(jPanelCareerLayout);
-        jPanelCareerLayout.setHorizontalGroup(
-            jPanelCareerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCareerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelHomeIcon)
-                .addContainerGap(283, Short.MAX_VALUE))
+        jButtonDelete.setBackground(new java.awt.Color(255, 102, 102));
+        jButtonDelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDelete.setText("Eliminar");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
+
+        jButtonUpdate.setBackground(new java.awt.Color(51, 204, 255));
+        jButtonUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonUpdate.setText("Modificar");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
+
+        jButtonClear.setBackground(new java.awt.Color(204, 204, 0));
+        jButtonClear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonClear.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonClear.setText("Limpiar");
+        jButtonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(225, 225, 225)
+                                .addComponent(jLabelTitle))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelName)
+                                    .addComponent(jLabelID)
+                                    .addComponent(jLabelType))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldName)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldType, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jButtonInsert)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                        .addComponent(jButtonUpdate)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonClear))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
         );
-        jPanelCareerLayout.setVerticalGroup(
-            jPanelCareerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCareerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelHomeIcon)
-                .addContainerGap(293, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabelTitle)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelID)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelName)
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelType)
+                    .addComponent(jTextFieldType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonDelete)
+                    .addComponent(jButtonInsert)
+                    .addComponent(jButtonUpdate)
+                    .addComponent(jButtonClear))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCareer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCareer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabelHomeIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeIconMouseClicked
-        JFrameHome home = new JFrameHome();
-        home.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabelHomeIconMouseClicked
+    private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertActionPerformed
+        try {
+            KeyRoom key = new KeyRoom();
+            //            key.setId(Integer.parseInt(jTextFieldId.getText()));
+            key.setName(jTextFieldName.getText().toUpperCase());
+            key.setRoom(jTextFieldRoom.getText());
+            key.setCount(Integer.parseInt(jTextFieldCount.getText()));
+            key.setObservation(jTextAreaObservation.getText());
+            keyController.insertKey(key);
+
+            MessageUtils.showInfoMessage("Llave creada exitosamente");
+
+            fillTable();
+            clean();
+        }
+        catch (Exception e) {
+            MessageUtils.showErrorMessage(e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonInsertActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        try {
+            int option = JOptionPane.showConfirmDialog(rootPane, "Eta seguro de eliminar la llave?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+            if(option == JOptionPane.YES_OPTION)
+            {
+                keyController.deleteKey(Integer.parseInt(jTextFieldId.getText()));
+                MessageUtils.showInfoMessage("LLave eliminada exitosamente");
+                fillTable();
+            }
+            clean();
+        }
+        catch (Exception e) {
+            MessageUtils.showErrorMessage(e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        try {
+            KeyRoom key = new KeyRoom();
+            //            key.setId(Integer.parseInt(jTextFieldId.getText()));
+            key.setName(jTextFieldName.getText());
+            key.setRoom(jTextFieldRoom.getText());
+            key.setCount(Integer.parseInt(jTextFieldCount.getText()));
+            key.setObservation(jTextAreaObservation.getText());
+            MessageUtils.showInfoMessage("Llave creada exitosamente");
+
+            keyController.updateKey(key);
+
+            fillTable();
+            clean();
+        }
+        catch (Exception e) {
+            MessageUtils.showErrorMessage(e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
+
+    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
+        clean();
+    }//GEN-LAST:event_jButtonClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,6 +296,7 @@ public class JFrameCareer extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(JFrameCareer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -121,7 +307,19 @@ public class JFrameCareer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabelHomeIcon;
-    private javax.swing.JPanel jPanelCareer;
+    private javax.swing.JButton jButtonClear;
+    private javax.swing.JButton jButtonDelete;
+    private javax.swing.JButton jButtonInsert;
+    private javax.swing.JButton jButtonUpdate;
+    private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabelType;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextFieldId;
+    private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTextField jTextFieldType;
     // End of variables declaration//GEN-END:variables
 }
