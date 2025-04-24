@@ -4,18 +4,18 @@
  */
 package co.edu.sena.persa.controllers;
 
-import co.edu.sena.persa.model.Career;
+import co.edu.sena.persa.model.Course;
 import java.util.List;
 
 /**
  *Fecha: 24/04/2025
  * @author Sebastian Rodriguez
- * Objetivo: Interface para el modelo Career.
+ * Objetivo: Interface para el modelo Course.
  */
-public interface ICareerController {
-    public void insert(Career career) throws Exception;
-    public void update(Career career) throws Exception;
+public interface ICourseController {
+    public void insert(Course course) throws Exception;
+    public void update(Course course) throws Exception;
     public void delete(Long id) throws Exception;
-    public List<Career> findAll() throws Exception;
-    public Career findById(Long id) throws Exception;
+    public List<Course> findAll() throws Exception;
+    public Course findById(Long id) throws Exception;
 }
