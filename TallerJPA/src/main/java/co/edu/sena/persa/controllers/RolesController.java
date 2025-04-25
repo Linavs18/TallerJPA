@@ -4,9 +4,13 @@
  */
 package co.edu.sena.persa.controllers;
 
+<<<<<<< HEAD
 import co.edu.sena.persa.persistence.EntityManagerHelper;
+=======
+>>>>>>> origin/dev
 import co.edu.sena.persa.model.Roles;
 import co.edu.sena.persa.persistence.DAOFactory;
+import co.edu.sena.persa.persistence.EntityManagerHelper;
 import java.util.List;
 
 /**
