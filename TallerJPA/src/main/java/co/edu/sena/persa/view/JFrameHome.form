@@ -46,11 +46,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="jButtonCourse" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonCareer" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonExit" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonCourse" alignment="1" pref="84" max="32767" attributes="0"/>
+                      <Component id="jButtonCareer" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="131" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelIcon" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -85,7 +85,7 @@
                           <Component id="jButtonExit" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -105,7 +105,7 @@
         <Component class="javax.swing.JLabel" name="jLabelIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\repos\TallerJPA\TallerJPA\resources\PERSA LOGO.png"/>
+              <Image iconType="2" name="C:\Repos\TallerJPA\TallerJPA\resources\PERSA LOGO.png"/>
             </Property>
           </Properties>
         </Component>

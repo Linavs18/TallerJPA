@@ -11,12 +11,12 @@ package co.edu.sena.persa.view;
  *                                     Manuel Alejandro Ocampo Saya
  * Obejtivo: Diseño de los JFrames del proyecto PERSA
  */
-public class JFrameApprenticeCourse extends javax.swing.JFrame {
+public class JFrameCourse extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameApprenticeCourse
      */
-    public JFrameApprenticeCourse() {
+    public JFrameCourse() {
         initComponents();
     }
 
@@ -31,6 +31,11 @@ public class JFrameApprenticeCourse extends javax.swing.JFrame {
 
         jPanelApprenticeCourse = new javax.swing.JPanel();
         jLabelHomeIcon = new javax.swing.JLabel();
+        jLabelUsers = new javax.swing.JLabel();
+        jLabelId = new javax.swing.JLabel();
+        jTextFieldId = new javax.swing.JTextField();
+        jLabelTrimester = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,7 +43,6 @@ public class JFrameApprenticeCourse extends javax.swing.JFrame {
 
         jLabelHomeIcon.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelHomeIcon.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelHomeIcon.setIcon(new javax.swing.ImageIcon("D:\\repos\\TallerJPA\\TallerJPA\\resources\\home.png")); // NOI18N
         jLabelHomeIcon.setText("HOME");
         jLabelHomeIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelHomeIcon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -47,21 +51,57 @@ public class JFrameApprenticeCourse extends javax.swing.JFrame {
             }
         });
 
+        jLabelUsers.setBackground(new java.awt.Color(102, 102, 102));
+        jLabelUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelUsers.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelUsers.setText("Cursos");
+
+        jLabelId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelId.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelId.setText("id:");
+
+        jTextFieldId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+
+        jLabelTrimester.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelTrimester.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTrimester.setText("Trimestre:");
+
         javax.swing.GroupLayout jPanelApprenticeCourseLayout = new javax.swing.GroupLayout(jPanelApprenticeCourse);
         jPanelApprenticeCourse.setLayout(jPanelApprenticeCourseLayout);
         jPanelApprenticeCourseLayout.setHorizontalGroup(
             jPanelApprenticeCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelApprenticeCourseLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelHomeIcon)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addGroup(jPanelApprenticeCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelApprenticeCourseLayout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addComponent(jLabelUsers))
+                    .addGroup(jPanelApprenticeCourseLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelApprenticeCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelHomeIcon, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabelTrimester)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanelApprenticeCourseLayout.setVerticalGroup(
             jPanelApprenticeCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelApprenticeCourseLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelHomeIcon)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addGap(2, 2, 2)
+                .addComponent(jLabelUsers)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelApprenticeCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTrimester)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(296, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,26 +142,34 @@ public class JFrameApprenticeCourse extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameApprenticeCourse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameCourse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameApprenticeCourse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameCourse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameApprenticeCourse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameCourse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameApprenticeCourse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameCourse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameApprenticeCourse().setVisible(true);
+                new JFrameCourse().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabelHomeIcon;
+    private javax.swing.JLabel jLabelId;
+    private javax.swing.JLabel jLabelTrimester;
+    private javax.swing.JLabel jLabelUsers;
     private javax.swing.JPanel jPanelApprenticeCourse;
+    private javax.swing.JTextField jTextFieldId;
     // End of variables declaration//GEN-END:variables
 }

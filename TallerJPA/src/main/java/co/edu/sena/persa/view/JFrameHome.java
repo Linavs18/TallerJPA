@@ -45,7 +45,7 @@ public class JFrameHome extends javax.swing.JFrame {
         jLabelTitle.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTitle.setText("PERSA");
 
-        jLabelIcon.setIcon(new javax.swing.ImageIcon("D:\\repos\\TallerJPA\\TallerJPA\\resources\\PERSA LOGO.png")); // NOI18N
+        jLabelIcon.setIcon(new javax.swing.ImageIcon("C:\\Repos\\TallerJPA\\TallerJPA\\resources\\PERSA LOGO.png")); // NOI18N
 
         jButtonCourse.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCourse.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -91,10 +91,10 @@ public class JFrameHome extends javax.swing.JFrame {
             .addGroup(jPanelHomeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButtonCourse)
-                    .addComponent(jButtonCareer)
-                    .addComponent(jButtonExit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                    .addComponent(jButtonExit)
+                    .addComponent(jButtonCourse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                    .addComponent(jButtonCareer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(119, 119, 119)
                 .addGroup(jPanelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelIcon, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -122,7 +122,7 @@ public class JFrameHome extends javax.swing.JFrame {
                         .addComponent(jButtonCareer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonExit)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,7 +145,7 @@ public class JFrameHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourseActionPerformed
-        JFrameApprenticeCourse apprenticeCourse = new JFrameApprenticeCourse();
+        JFrameCourse apprenticeCourse = new JFrameCourse();
         apprenticeCourse.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCourseActionPerformed
