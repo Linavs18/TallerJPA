@@ -26,42 +26,64 @@ public class JFrameCourses extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelBackground = new javax.swing.JPanel();
+        jPanelHeader = new javax.swing.JPanel();
+        jLabelIconSena = new javax.swing.JLabel();
+        jLabelIconPersa = new javax.swing.JLabel();
+        jLabelTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("COURSES");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelBackground.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 48, 77));
+        jPanelHeader.setBackground(new java.awt.Color(0, 48, 77));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+        jLabelIconSena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoSenaR.png"))); // NOI18N
+
+        jLabelIconPersa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoSenaX.png"))); // NOI18N
+
+        jLabelTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitle.setText("CURSOS");
+
+        javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
+        jPanelHeader.setLayout(jPanelHeaderLayout);
+        jPanelHeaderLayout.setHorizontalGroup(
+            jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelHeaderLayout.createSequentialGroup()
+                .addComponent(jLabelIconSena)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addComponent(jLabelTitle)
+                .addGap(123, 123, 123)
+                .addComponent(jLabelIconPersa)
+                .addGap(24, 24, 24))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
+        jPanelHeaderLayout.setVerticalGroup(
+            jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelIconSena)
+            .addGroup(jPanelHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelTitle)
+                    .addComponent(jLabelIconPersa)))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
+        jPanelBackground.setLayout(jPanelBackgroundLayout);
+        jPanelBackgroundLayout.setHorizontalGroup(
+            jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 390, Short.MAX_VALUE))
+        jPanelBackgroundLayout.setVerticalGroup(
+            jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBackgroundLayout.createSequentialGroup()
+                .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 406, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 470));
+        getContentPane().add(jPanelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 470));
 
         pack();
         setLocationRelativeTo(null);
@@ -104,7 +126,10 @@ public class JFrameCourses extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabelIconPersa;
+    private javax.swing.JLabel jLabelIconSena;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPanel jPanelBackground;
+    private javax.swing.JPanel jPanelHeader;
     // End of variables declaration//GEN-END:variables
 }

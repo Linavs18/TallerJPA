@@ -107,15 +107,15 @@ public class JFrameHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonCareerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCareerActionPerformed
-//        JFrameCareer career = new JFrameCareer();
-//        career.setVisible(true);
-//        this.dispose();
+        JFrameCareer career = new JFrameCareer();
+        career.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonCareerActionPerformed
 
     private void jButtonCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourseActionPerformed
-//        JFrameCourses course = new JFrameCourses();
-//        course.setVisible(true);
-//        this.dispose();
+        JFrameCourses course = new JFrameCourses();
+        course.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonCourseActionPerformed
 
     /**
