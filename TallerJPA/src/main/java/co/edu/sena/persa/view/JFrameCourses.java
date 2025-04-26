@@ -11,7 +11,7 @@ package co.edu.sena.persa.view;
 public class JFrameCourses extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFrameCareer
+     * Creates new form JFrameCourses
      */
     public JFrameCourses() {
         initComponents();
@@ -26,17 +26,55 @@ public class JFrameCourses extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelBackground = new javax.swing.JPanel();
+        jButtonAdd = new javax.swing.JButton();
+        jButtonUpdate = new javax.swing.JButton();
+        jButtonClean = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
+        jPanelBody = new javax.swing.JPanel();
         jPanelHeader = new javax.swing.JPanel();
         jLabelIconSena = new javax.swing.JLabel();
         jLabelIconPersa = new javax.swing.JLabel();
         jLabelTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableCourses = new javax.swing.JTable();
+        jButtonAdd1 = new javax.swing.JButton();
+        jButtonUpdate1 = new javax.swing.JButton();
+        jButtonClean1 = new javax.swing.JButton();
+        jButtonDelete1 = new javax.swing.JButton();
+        jLabelHome = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        jButtonAdd.setBackground(new java.awt.Color(57, 169, 0));
+        jButtonAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/addWhite.png"))); // NOI18N
+        jButtonAdd.setText("CREAR");
+        jButtonAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButtonUpdate.setBackground(new java.awt.Color(51, 51, 255));
+        jButtonUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editWhite.png"))); // NOI18N
+        jButtonUpdate.setText("ACTUALIZAR");
+        jButtonUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButtonClean.setBackground(new java.awt.Color(255, 255, 153));
+        jButtonClean.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonClean.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonClean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cleanBlack.png"))); // NOI18N
+        jButtonClean.setText("LIMPIAR");
+        jButtonClean.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButtonDelete.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deleteWhite.png"))); // NOI18N
+        jButtonDelete.setText("ELIMINAR");
+        jButtonDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("COURSES");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelBackground.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelBody.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanelHeader.setBackground(new java.awt.Color(0, 48, 77));
 
@@ -54,9 +92,9 @@ public class JFrameCourses extends javax.swing.JFrame {
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addComponent(jLabelIconSena)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelTitle)
-                .addGap(123, 123, 123)
+                .addGap(162, 162, 162)
                 .addComponent(jLabelIconPersa)
                 .addGap(24, 24, 24))
         );
@@ -70,24 +108,117 @@ public class JFrameCourses extends javax.swing.JFrame {
                     .addComponent(jLabelIconPersa)))
         );
 
-        javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
-        jPanelBackground.setLayout(jPanelBackgroundLayout);
-        jPanelBackgroundLayout.setHorizontalGroup(
-            jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jTableCourses.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTableCourses);
+
+        jButtonAdd1.setBackground(new java.awt.Color(57, 169, 0));
+        jButtonAdd1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonAdd1.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/addWhite.png"))); // NOI18N
+        jButtonAdd1.setText("CREAR");
+        jButtonAdd1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButtonUpdate1.setBackground(new java.awt.Color(51, 51, 255));
+        jButtonUpdate1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonUpdate1.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonUpdate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editWhite.png"))); // NOI18N
+        jButtonUpdate1.setText("ACTUALIZAR");
+        jButtonUpdate1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButtonClean1.setBackground(new java.awt.Color(255, 255, 153));
+        jButtonClean1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonClean1.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonClean1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cleanBlack.png"))); // NOI18N
+        jButtonClean1.setText("LIMPIAR");
+        jButtonClean1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButtonDelete1.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonDelete1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonDelete1.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDelete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deleteWhite.png"))); // NOI18N
+        jButtonDelete1.setText("ELIMINAR");
+        jButtonDelete1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabelHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelHome.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homeBlack.png"))); // NOI18N
+        jLabelHome.setText("HOME");
+        jLabelHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelHomeMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
+        jPanelBody.setLayout(jPanelBodyLayout);
+        jPanelBodyLayout.setHorizontalGroup(
+            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
+            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addComponent(jButtonAdd1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(jButtonUpdate1)
+                        .addGap(37, 37, 37)
+                        .addComponent(jButtonClean1)
+                        .addGap(56, 56, 56)
+                        .addComponent(jButtonDelete1))
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addComponent(jLabelHome)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanelBackgroundLayout.setVerticalGroup(
-            jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBackgroundLayout.createSequentialGroup()
+        jPanelBodyLayout.setVerticalGroup(
+            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 406, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelHome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAdd1)
+                    .addComponent(jButtonDelete1)
+                    .addComponent(jButtonClean1)
+                    .addComponent(jButtonUpdate1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 470));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeMouseClicked
+        JFrameHome home = new JFrameHome();
+        home.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabelHomeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -115,7 +246,6 @@ public class JFrameCourses extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(JFrameCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -126,10 +256,21 @@ public class JFrameCourses extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonAdd1;
+    private javax.swing.JButton jButtonClean;
+    private javax.swing.JButton jButtonClean1;
+    private javax.swing.JButton jButtonDelete;
+    private javax.swing.JButton jButtonDelete1;
+    private javax.swing.JButton jButtonUpdate;
+    private javax.swing.JButton jButtonUpdate1;
+    private javax.swing.JLabel jLabelHome;
     private javax.swing.JLabel jLabelIconPersa;
     private javax.swing.JLabel jLabelIconSena;
     private javax.swing.JLabel jLabelTitle;
-    private javax.swing.JPanel jPanelBackground;
+    private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableCourses;
     // End of variables declaration//GEN-END:variables
 }

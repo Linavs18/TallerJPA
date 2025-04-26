@@ -17,7 +17,6 @@ public class JFrameHome extends javax.swing.JFrame {
      */
     public JFrameHome() {
         initComponents();
-        setBackgroundImage();
     }
 
     /**
@@ -34,9 +33,11 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonCareer = new javax.swing.JButton();
         jButtonExit = new javax.swing.JButton();
         jButtonCourse = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jPanelBackground = new javax.swing.JPanel();
-        jLabelBackground = new javax.swing.JLabel();
+        jLabelTitle = new javax.swing.JLabel();
+        jPanelBody = new javax.swing.JPanel();
+        jPanelSection = new javax.swing.JPanel();
+        jLabelIconPersa = new javax.swing.JLabel();
+        jLabelIconSena = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -86,17 +87,45 @@ public class JFrameHome extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 160, 30));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("PAGINA PRINCIPAL");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jLabelTitle.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelTitle.setText("PAGINA PRINCIPAL");
+        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        jPanelBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanelBody.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 310));
 
-        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frame PERSA.png"))); // NOI18N
-        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 310));
+        jPanelSection.setBackground(new java.awt.Color(0, 48, 77));
+
+        jLabelIconPersa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoSenaX.png"))); // NOI18N
+
+        jLabelIconSena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoSenaR.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanelSectionLayout = new javax.swing.GroupLayout(jPanelSection);
+        jPanelSection.setLayout(jPanelSectionLayout);
+        jPanelSectionLayout.setHorizontalGroup(
+            jPanelSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSectionLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jLabelIconPersa)
+                .addGap(15, 15, 15))
+            .addGroup(jPanelSectionLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabelIconSena)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelSectionLayout.setVerticalGroup(
+            jPanelSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSectionLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabelIconSena)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addComponent(jLabelIconPersa)
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanelSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 150, 310));
 
         pack();
         setLocationRelativeTo(null);
@@ -118,18 +147,6 @@ public class JFrameHome extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonCourseActionPerformed
 
-    /**
-     * Sets the background image for the JFrame.
-     */
-    private void setBackgroundImage() {
-        // Establecer la imagen de fondo en el JPanel
-        jPanelBackground.setOpaque(false);
-        jPanelBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jLabelBackground = new javax.swing.JLabel();
-        jLabelBackground.setIcon(new ImageIcon(getClass().getResource("/Frame PERSA.png"))); // Ruta relativa
-        jLabelBackground.setBounds(0, 0, 430, 310);
-        jPanelBackground.add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 310));
-    }
 
     /**
      * @param args the command line arguments
@@ -168,10 +185,12 @@ public class JFrameHome extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCareer;
     private javax.swing.JButton jButtonCourse;
     private javax.swing.JButton jButtonExit;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelBackground;
+    private javax.swing.JLabel jLabelIconPersa;
+    private javax.swing.JLabel jLabelIconSena;
+    private javax.swing.JLabel jLabelTitle;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanelBackground;
+    private javax.swing.JPanel jPanelBody;
+    private javax.swing.JPanel jPanelSection;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
