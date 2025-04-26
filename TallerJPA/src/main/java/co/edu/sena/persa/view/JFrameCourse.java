@@ -73,9 +73,6 @@ public class JFrameCourse extends javax.swing.JFrame {
             .addGroup(jPanelApprenticeCourseLayout.createSequentialGroup()
                 .addGroup(jPanelApprenticeCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelApprenticeCourseLayout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(jLabelUsers))
-                    .addGroup(jPanelApprenticeCourseLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanelApprenticeCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -85,7 +82,10 @@ public class JFrameCourse extends javax.swing.JFrame {
                         .addGap(69, 69, 69)
                         .addComponent(jLabelTrimester)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelApprenticeCourseLayout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addComponent(jLabelUsers)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanelApprenticeCourseLayout.setVerticalGroup(

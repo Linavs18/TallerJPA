@@ -82,7 +82,7 @@ public class CareerController implements ICareerController{
     }
 
     @Override
-    public List<Career> findAll() throws Exception {
+    public  List<Career> findAll() throws Exception {
         return DAOFactory.getCareerDAO().findAll();
     }
 
