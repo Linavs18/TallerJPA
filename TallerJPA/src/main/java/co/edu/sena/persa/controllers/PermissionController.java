@@ -34,14 +34,24 @@ public class PermissionController implements IPermissionController{
         {
             throw new Exception("La hora de finalización es obligatoria");
         }
-        if(permission.getReasons()== null)
+        if("".equals(permission.getReasons()))
         {
             throw new Exception("La razon es obligatoria");
         }
         //FK
         if(permission.getInstructorId()== null)
         {
-            throw new Exception("El id del instructor es obligatorio es obligatorio");
+            throw new Exception("El id del instructor es obligatorio");
+        }
+        
+        if(permission.getGuardId()== null)
+        {
+            throw new Exception("El id del guardia es obligatorio");
+        }
+        
+        if("".equals(permission.getStatus()))
+        {
+            throw new Exception("El estado es obligatorio");
         }
         //FK
         if(permission.getLocationId()== null)
@@ -91,6 +101,15 @@ public class PermissionController implements IPermissionController{
         {
             throw new Exception("El id del instructor es obligatorio es obligatorio");
         }
+        if(permission.getGuardId()== null)
+        {
+            throw new Exception("El id del guardia es obligatorio");
+        }
+        
+        if("".equals(permission.getStatus()))
+        {
+            throw new Exception("El estado es obligatorio");
+        }
         //FK
         if(permission.getLocationId()== null)
         {
@@ -101,10 +120,7 @@ public class PermissionController implements IPermissionController{
         {
             throw new Exception("El tipo de permiso es obligatorio");
         }
-        if("".equals(permission.getStatus()))
-        {
-            throw new Exception("El estado es obligatorio");
-        }
+       
         //Consultar si el permiso existe en la DB
         Permission permissionExists = DAOFactory.getPermissionDAO().findById(permission.getId());
         if (permissionExists != null){

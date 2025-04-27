@@ -215,9 +215,7 @@ public class JFrameCourses extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeMouseClicked
-        JFrameHome home = new JFrameHome();
-        home.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jLabelHomeMouseClicked
 
     /**
