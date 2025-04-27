@@ -55,10 +55,8 @@ public class Users implements Serializable {
     @Basic(optional = false)
     @Column(name = "status")
     private String status;
-    @ManyToMany(mappedBy = "usersCollection")
+    @ManyToMany
     private Collection<Course> courseCollection;
-    @ManyToMany(mappedBy = "usersCollection1")
-    private Collection<Course> courseCollection1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "instructorId")
     private Collection<Permission> permissionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "guardId")
@@ -128,14 +126,6 @@ public class Users implements Serializable {
 
     public void setCourseCollection(Collection<Course> courseCollection) {
         this.courseCollection = courseCollection;
-    }
-
-    public Collection<Course> getCourseCollection1() {
-        return courseCollection1;
-    }
-
-    public void setCourseCollection1(Collection<Course> courseCollection1) {
-        this.courseCollection1 = courseCollection1;
     }
 
     public Collection<Permission> getPermissionCollection() {

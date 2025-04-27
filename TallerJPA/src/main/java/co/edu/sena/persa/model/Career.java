@@ -114,7 +114,7 @@ public class Career implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.persa.model.Career[ id=" + id + " ]";
+        return name;
     }
     
 }

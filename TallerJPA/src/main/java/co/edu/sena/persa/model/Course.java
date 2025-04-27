@@ -5,7 +5,6 @@
 package co.edu.sena.persa.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,8 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -49,8 +46,7 @@ public class Course implements Serializable {
     private String trimester;
     @Basic(optional = false)
     @Column(name = "year")
-    @Temporal(TemporalType.DATE)
-    private Date year;
+    private String year;
     @Basic(optional = false)
     @Column(name = "status")
     private String status;
@@ -65,7 +61,7 @@ public class Course implements Serializable {
         this.id = id;
     }
 
-    public Course(Long id, String shift, String trimester, Date year, String status) {
+    public Course(Long id, String shift, String trimester, String year, String status) {
         this.id = id;
         this.shift = shift;
         this.trimester = trimester;
@@ -97,11 +93,11 @@ public class Course implements Serializable {
         this.trimester = trimester;
     }
 
-    public Date getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Date year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -143,7 +139,7 @@ public class Course implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.persa.model.Course[ id=" + id + " ]";
+        return shift;
     }
     
 }

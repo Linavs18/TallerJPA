@@ -4,17 +4,81 @@
  */
 package co.edu.sena.persa.view;
 
+import co.edu.sena.persa.controllers.CareerController;
+import co.edu.sena.persa.controllers.CourseController;
+import co.edu.sena.persa.controllers.ICareerController;
+import co.edu.sena.persa.controllers.ICourseController;
+import co.edu.sena.persa.model.Career;
+import co.edu.sena.persa.model.Course;
+import co.edu.sena.persa.utils.MessageUtils;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Sebas
  */
 public class JFrameCourses extends javax.swing.JFrame {
+    private ICourseController courseController = new CourseController();
+    private ICareerController careerController = new CareerController();
 
     /**
      * Creates new form JFrameCourses
      */
     public JFrameCourses() {
         initComponents();
+        fillCombos();
+        fillTable();
+    }
+    
+    public void fillCombos()
+    {
+        try {
+//            List<Course> employees = courseController.findAll();
+//            DefaultComboBoxModel model = new DefaultComboBoxModel();
+//            jComboBoxShift.setModel(model);
+//            model.addAll(employees);
+            
+            List<Career> career = careerController.findAll();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            jComboBoxCareer.setModel(model);
+            model.addAll(career);
+            
+        } catch (Exception e) {
+            MessageUtils.ShowErrorMessage(e.getMessage());
+        }
+            
+    }
+    
+    public void fillTable()
+    {
+        try {
+            DefaultTableModel model = new DefaultTableModel();
+            jTableCourses.setModel(model);
+            model.addColumn("Id");
+            model.addColumn("Programa");
+            model.addColumn("Trimestre");
+            model.addColumn("Jornada");
+            model.addColumn("Estado");
+            model.addColumn("Año");
+            
+            String [] rows = new String[6];
+            List<Course> course = courseController.findAll();
+            for (Course c : course) {
+                rows[0] = String.valueOf(c.getId());
+                rows[1] = c.getCareerId().getName();
+                rows[2] = c.getTrimester();
+                rows[3] = c.getShift();
+                rows[4] = c.getStatus();
+                rows[5] = c.getYear();
+                
+                model.addRow(rows);
+            }
+        } catch (Exception e) {
+            MessageUtils.ShowErrorMessage(e.getMessage());
+        }
     }
 
     /**
@@ -42,6 +106,18 @@ public class JFrameCourses extends javax.swing.JFrame {
         jButtonClean1 = new javax.swing.JButton();
         jButtonDelete1 = new javax.swing.JButton();
         jLabelHome = new javax.swing.JLabel();
+        jLabelId = new javax.swing.JLabel();
+        jTextFieldId = new javax.swing.JTextField();
+        jLabelTrimester = new javax.swing.JLabel();
+        jComboBoxTrimester = new javax.swing.JComboBox<>();
+        jLabelStatus = new javax.swing.JLabel();
+        jLabelCareer = new javax.swing.JLabel();
+        jLabelYear = new javax.swing.JLabel();
+        jLabelShift = new javax.swing.JLabel();
+        jComboBoxShift = new javax.swing.JComboBox<>();
+        jComboBoxStatus = new javax.swing.JComboBox<>();
+        jComboBoxCareer = new javax.swing.JComboBox<>();
+        jTextFieldYear = new javax.swing.JTextField();
 
         jButtonAdd.setBackground(new java.awt.Color(57, 169, 0));
         jButtonAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -94,7 +170,7 @@ public class JFrameCourses extends javax.swing.JFrame {
                 .addComponent(jLabelIconSena)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelTitle)
-                .addGap(162, 162, 162)
+                .addGap(197, 197, 197)
                 .addComponent(jLabelIconPersa)
                 .addGap(24, 24, 24))
         );
@@ -119,6 +195,11 @@ public class JFrameCourses extends javax.swing.JFrame {
 
             }
         ));
+        jTableCourses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCoursesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableCourses);
 
         jButtonAdd1.setBackground(new java.awt.Color(57, 169, 0));
@@ -127,6 +208,11 @@ public class JFrameCourses extends javax.swing.JFrame {
         jButtonAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/addWhite.png"))); // NOI18N
         jButtonAdd1.setText("CREAR");
         jButtonAdd1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdd1ActionPerformed(evt);
+            }
+        });
 
         jButtonUpdate1.setBackground(new java.awt.Color(51, 51, 255));
         jButtonUpdate1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -134,6 +220,11 @@ public class JFrameCourses extends javax.swing.JFrame {
         jButtonUpdate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editWhite.png"))); // NOI18N
         jButtonUpdate1.setText("ACTUALIZAR");
         jButtonUpdate1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdate1ActionPerformed(evt);
+            }
+        });
 
         jButtonClean1.setBackground(new java.awt.Color(255, 255, 153));
         jButtonClean1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -141,6 +232,11 @@ public class JFrameCourses extends javax.swing.JFrame {
         jButtonClean1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cleanBlack.png"))); // NOI18N
         jButtonClean1.setText("LIMPIAR");
         jButtonClean1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonClean1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClean1ActionPerformed(evt);
+            }
+        });
 
         jButtonDelete1.setBackground(new java.awt.Color(255, 51, 51));
         jButtonDelete1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -148,6 +244,11 @@ public class JFrameCourses extends javax.swing.JFrame {
         jButtonDelete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deleteWhite.png"))); // NOI18N
         jButtonDelete1.setText("ELIMINAR");
         jButtonDelete1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDelete1ActionPerformed(evt);
+            }
+        });
 
         jLabelHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelHome.setForeground(new java.awt.Color(0, 0, 0));
@@ -160,6 +261,51 @@ public class JFrameCourses extends javax.swing.JFrame {
             }
         });
 
+        jLabelId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelId.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelId.setText("Id: ");
+
+        jTextFieldId.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldId.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabelTrimester.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelTrimester.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelTrimester.setText("Trimestre:");
+
+        jComboBoxTrimester.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxTrimester.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBoxTrimester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T1 ", "T2", "T3", "T4" }));
+
+        jLabelStatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelStatus.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelStatus.setText("Estado:");
+
+        jLabelCareer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelCareer.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelCareer.setText("Programa:");
+
+        jLabelYear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelYear.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelYear.setText("Año:");
+
+        jLabelShift.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelShift.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelShift.setText("Jornada:");
+
+        jComboBoxShift.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxShift.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBoxShift.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DIURNA ", "NOCTURNA ", "MIXTA" }));
+
+        jComboBoxStatus.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxStatus.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVO", "INACTIVO" }));
+
+        jComboBoxCareer.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxCareer.setForeground(new java.awt.Color(0, 0, 0));
+
+        jTextFieldYear.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldYear.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
@@ -169,17 +315,44 @@ public class JFrameCourses extends javax.swing.JFrame {
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                         .addComponent(jButtonAdd1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addGap(91, 91, 91)
                         .addComponent(jButtonUpdate1)
-                        .addGap(37, 37, 37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                         .addComponent(jButtonClean1)
-                        .addGap(56, 56, 56)
+                        .addGap(78, 78, 78)
                         .addComponent(jButtonDelete1))
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                         .addComponent(jLabelHome)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCareer)
+                            .addComponent(jLabelId, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldId)
+                            .addComponent(jComboBoxCareer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelStatus)
+                            .addComponent(jLabelYear, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBoxStatus, 0, 174, Short.MAX_VALUE)
+                            .addComponent(jTextFieldYear))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelShift)
+                            .addComponent(jLabelTrimester))
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jComboBoxTrimester, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxShift, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanelBodyLayout.setVerticalGroup(
@@ -188,22 +361,37 @@ public class JFrameCourses extends javax.swing.JFrame {
                 .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelHome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelId)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelStatus)
+                    .addComponent(jLabelTrimester)
+                    .addComponent(jComboBoxTrimester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCareer)
+                    .addComponent(jLabelYear)
+                    .addComponent(jLabelShift)
+                    .addComponent(jComboBoxShift, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxCareer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAdd1)
                     .addComponent(jButtonDelete1)
                     .addComponent(jButtonClean1)
                     .addComponent(jButtonUpdate1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,9 +403,111 @@ public class JFrameCourses extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeMouseClicked
-
+        
     }//GEN-LAST:event_jLabelHomeMouseClicked
 
+    private void jTableCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCoursesMouseClicked
+        int rowSelected = jTableCourses.getSelectedRow();
+        if(rowSelected != -1)
+        {
+            long idSelected = Long.parseLong(jTableCourses.getValueAt(rowSelected, 0).toString());
+            try {
+                Course c = courseController.findById(idSelected);
+                jTextFieldId.setText(String.valueOf(idSelected));
+                jTextFieldYear.setText(c.getYear());
+                jComboBoxCareer.getModel().setSelectedItem(c.getCareerId().getName());
+                jComboBoxStatus.getModel().setSelectedItem(c.getStatus());
+                jComboBoxShift.getModel().setSelectedItem(c.getShift());
+                jComboBoxTrimester.getModel().setSelectedItem(c.getTrimester());
+
+                jButtonAdd.setEnabled(false);
+                jButtonUpdate.setEnabled(true);
+                jButtonDelete.setEnabled(true);
+            } catch (Exception e) {
+                MessageUtils.ShowInfoMessage(e.getMessage());
+            }
+            } 
+    }//GEN-LAST:event_jTableCoursesMouseClicked
+
+    private void jButtonClean1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClean1ActionPerformed
+       clean();
+    }//GEN-LAST:event_jButtonClean1ActionPerformed
+
+    private void jButtonAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdd1ActionPerformed
+        try {
+            Course course = new Course();
+            course.setId(Long.parseLong(jTextFieldId.getText()));
+            course.setStatus(jComboBoxStatus.getSelectedItem().toString());
+            course.setTrimester(jComboBoxTrimester.getSelectedItem().toString());
+            course.setShift(jComboBoxShift.getSelectedItem().toString());
+            course.setYear(jTextFieldYear.getText());
+            
+            Career career = (Career) jComboBoxCareer.getSelectedItem();
+            course.setCareerId(career);
+            
+            courseController.insert(course);
+            MessageUtils.ShowInfoMessage("El curso creado exitosamente");
+            fillTable();
+            clean();
+            
+        } catch (Exception e) {
+            MessageUtils.ShowErrorMessage(e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonAdd1ActionPerformed
+
+    private void jButtonUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdate1ActionPerformed
+        try {
+            Course course = new Course();
+            course.setId(Long.parseLong(jTextFieldId.getText()));
+            course.setStatus(jComboBoxStatus.getSelectedItem().toString());
+            course.setTrimester(jComboBoxTrimester.getSelectedItem().toString());
+            course.setShift(jComboBoxShift.getSelectedItem().toString());
+            course.setYear(jTextFieldYear.getText());
+            
+            Career career = (Career) jComboBoxCareer.getSelectedItem();
+            course.setCareerId(career);
+           
+            courseController.update(course);
+            MessageUtils.ShowInfoMessage("El curso fue actualizado exitosamente");
+            fillTable();
+            clean();
+            
+        } catch (Exception e) {
+            MessageUtils.ShowErrorMessage(e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonUpdate1ActionPerformed
+
+    private void jButtonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelete1ActionPerformed
+        try {
+            int option = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar el registro?", 
+                         "Confirmacion", JOptionPane.YES_NO_OPTION);
+            if(option == JOptionPane.YES_OPTION)
+            {
+                courseController.delete(Long.parseLong(jTextFieldId.getText()));
+                MessageUtils.ShowInfoMessage("El curso fue eliminado exitosamente");
+                fillTable();
+            }
+            clean();
+        } catch (Exception e) {
+            MessageUtils.ShowErrorMessage(e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonDelete1ActionPerformed
+
+    
+    public void clean()
+    {
+        jTextFieldId.setText("");
+        jTextFieldYear.setText("");
+        jComboBoxCareer.setSelectedIndex(0);
+        jComboBoxStatus.setSelectedIndex(0);
+        jTableCourses.clearSelection();
+        jComboBoxShift.setSelectedIndex(0);
+        jComboBoxTrimester.setSelectedIndex(0);
+        jButtonAdd.setEnabled(true);
+        jButtonUpdate.setEnabled(false);
+        jButtonDelete.setEnabled(false);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -262,13 +552,25 @@ public class JFrameCourses extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDelete1;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JButton jButtonUpdate1;
+    private javax.swing.JComboBox<String> jComboBoxCareer;
+    private javax.swing.JComboBox<String> jComboBoxShift;
+    private javax.swing.JComboBox<String> jComboBoxStatus;
+    private javax.swing.JComboBox<String> jComboBoxTrimester;
+    private javax.swing.JLabel jLabelCareer;
     private javax.swing.JLabel jLabelHome;
     private javax.swing.JLabel jLabelIconPersa;
     private javax.swing.JLabel jLabelIconSena;
+    private javax.swing.JLabel jLabelId;
+    private javax.swing.JLabel jLabelShift;
+    private javax.swing.JLabel jLabelStatus;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabelTrimester;
+    private javax.swing.JLabel jLabelYear;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableCourses;
+    private javax.swing.JTextField jTextFieldId;
+    private javax.swing.JTextField jTextFieldYear;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,7 +31,7 @@ public class CourseController implements ICourseController{
         {
             throw  new Exception("El trimestre es obligatoria");
         }
-        if(course.getYear() == null)
+        if("".equals(course.getYear()))
         {
             throw new Exception("El año es obligatorio");
         }
@@ -72,7 +72,7 @@ public class CourseController implements ICourseController{
         {
             throw  new Exception("El trimestre es obligatoria");
         }
-        if(course.getYear() == null)
+        if("".equals(course.getYear()))
         {
             throw new Exception("El año es obligatorio");
         }
