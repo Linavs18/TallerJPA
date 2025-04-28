@@ -19,9 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- *Date:24/04/2025
+ *
  * @author alejo
- * Objetive: representa la tabla career
  */
 @Entity
 @Table(name = "career")
@@ -114,7 +113,7 @@ public class Career implements Serializable {
 
     @Override
     public String toString() {
-        return name;
+        return this.getName(); // Devuelve el nombre de la carrera
     }
     
 }

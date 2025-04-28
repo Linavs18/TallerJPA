@@ -5,14 +5,10 @@
 package co.edu.sena.persa.view;
 
 import co.edu.sena.persa.controllers.CareerController;
-import co.edu.sena.persa.controllers.CourseController;
 import co.edu.sena.persa.controllers.ICareerController;
-import co.edu.sena.persa.controllers.ICourseController;
 import co.edu.sena.persa.model.Career;
-import co.edu.sena.persa.model.Course;
 import co.edu.sena.persa.utils.MessageUtils;
 import java.util.List;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,14 +16,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sebas
  */
-public class JFrameCourses extends javax.swing.JFrame {
-    private ICourseController courseController = new CourseController();
+public class JFrameCareer extends javax.swing.JFrame {
     private ICareerController careerController = new CareerController();
 
     /**
      * Creates new form JFrameCourses
      */
-    public JFrameCourses() {
+    public JFrameCareer() {
         initComponents();
         fillCombos();
         fillTable();
@@ -36,12 +31,7 @@ public class JFrameCourses extends javax.swing.JFrame {
     public void fillCombos()
     {
         try {
-            
-            List<Career> career = careerController.findAll();
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-            jComboBoxCareer.setModel(model);
-            model.addAll(career);
-            
+            jComboBoxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion...", "TECNICO", "TECNOLOGO" }));
         } catch (Exception e) {
             MessageUtils.ShowErrorMessage(e.getMessage());
         }
@@ -54,21 +44,15 @@ public class JFrameCourses extends javax.swing.JFrame {
             DefaultTableModel model = new DefaultTableModel();
             jTableCourses.setModel(model);
             model.addColumn("Id");
-            model.addColumn("Programa");
-            model.addColumn("Trimestre");
-            model.addColumn("Jornada");
-            model.addColumn("Estado");
-            model.addColumn("Año");
+            model.addColumn("Nombre");
+            model.addColumn("Tipo");
             
-            String [] rows = new String[6];
-            List<Course> course = courseController.findAll();
-            for (Course c : course) {
+            String [] rows = new String[3];
+            List<Career> careers = careerController.findAll();
+            for (Career c : careers) {
                 rows[0] = String.valueOf(c.getId());
-                rows[1] = c.getCareerId().getName();
-                rows[2] = c.getTrimester();
-                rows[3] = c.getShift();
-                rows[4] = c.getStatus();
-                rows[5] = c.getYear();
+                rows[1] = c.getName();
+                rows[2] = c.getType();
                 
                 model.addRow(rows);
             }
@@ -100,23 +84,15 @@ public class JFrameCourses extends javax.swing.JFrame {
         jLabelHome = new javax.swing.JLabel();
         jLabelId = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
-        jLabelTrimester = new javax.swing.JLabel();
-        jComboBoxTrimester = new javax.swing.JComboBox<>();
-        jLabelStatus = new javax.swing.JLabel();
-        jLabelCareer = new javax.swing.JLabel();
-        jLabelYear = new javax.swing.JLabel();
-        jLabelShift = new javax.swing.JLabel();
-        jComboBoxShift = new javax.swing.JComboBox<>();
-        jComboBoxStatus = new javax.swing.JComboBox<>();
-        jComboBoxCareer = new javax.swing.JComboBox<>();
-        jTextFieldYear = new javax.swing.JTextField();
+        jLabelName = new javax.swing.JLabel();
+        jTextFieldName = new javax.swing.JTextField();
+        jLabelType = new javax.swing.JLabel();
+        jComboBoxType = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("COURSES");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("CAREER");
 
         jPanelBody.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelBody.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelHeader.setBackground(new java.awt.Color(0, 48, 77));
 
@@ -126,7 +102,7 @@ public class JFrameCourses extends javax.swing.JFrame {
 
         jLabelTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitle.setText("CURSOS");
+        jLabelTitle.setText("CARRERAS");
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
         jPanelHeader.setLayout(jPanelHeaderLayout);
@@ -134,23 +110,21 @@ public class JFrameCourses extends javax.swing.JFrame {
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
                 .addComponent(jLabelIconSena)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                 .addComponent(jLabelTitle)
-                .addGap(197, 197, 197)
+                .addGap(166, 166, 166)
                 .addComponent(jLabelIconPersa)
-                .addGap(24, 24, 24))
+                .addContainerGap())
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelIconSena)
             .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelTitle)
-                    .addComponent(jLabelIconPersa)))
+                .addGap(14, 14, 14)
+                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelIconPersa)
+                    .addComponent(jLabelTitle)))
         );
-
-        jPanelBody.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 785, -1));
 
         jTableCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,8 +145,6 @@ public class JFrameCourses extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableCourses);
 
-        jPanelBody.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 292, 785, 201));
-
         jButtonAdd.setBackground(new java.awt.Color(57, 169, 0));
         jButtonAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,7 +156,6 @@ public class JFrameCourses extends javax.swing.JFrame {
                 jButtonAddActionPerformed(evt);
             }
         });
-        jPanelBody.add(jButtonAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 251, -1, -1));
 
         jButtonUpdate.setBackground(new java.awt.Color(51, 51, 255));
         jButtonUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -197,7 +168,6 @@ public class JFrameCourses extends javax.swing.JFrame {
                 jButtonUpdateActionPerformed(evt);
             }
         });
-        jPanelBody.add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 251, -1, -1));
 
         jButtonClean.setBackground(new java.awt.Color(255, 255, 153));
         jButtonClean.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -210,7 +180,6 @@ public class JFrameCourses extends javax.swing.JFrame {
                 jButtonCleanActionPerformed(evt);
             }
         });
-        jPanelBody.add(jButtonClean, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 251, -1, -1));
 
         jButtonDelete.setBackground(new java.awt.Color(255, 51, 51));
         jButtonDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -223,7 +192,6 @@ public class JFrameCourses extends javax.swing.JFrame {
                 jButtonDeleteActionPerformed(evt);
             }
         });
-        jPanelBody.add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(649, 251, -1, -1));
 
         jLabelHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelHome.setForeground(new java.awt.Color(0, 0, 0));
@@ -235,78 +203,115 @@ public class JFrameCourses extends javax.swing.JFrame {
                 jLabelHomeMouseClicked(evt);
             }
         });
-        jPanelBody.add(jLabelHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 70, -1, -1));
 
         jLabelId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelId.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelId.setText("Id: ");
-        jPanelBody.add(jLabelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 120, 31, -1));
+        jLabelId.setText("Id:");
 
         jTextFieldId.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldId.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextFieldId.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelBody.add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 122, 164, -1));
 
-        jLabelTrimester.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelTrimester.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelTrimester.setText("Trimestre:");
-        jPanelBody.add(jLabelTrimester, new org.netbeans.lib.awtextra.AbsoluteConstraints(539, 120, -1, -1));
+        jLabelName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelName.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelName.setText("Nombre:");
 
-        jComboBoxTrimester.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBoxTrimester.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxTrimester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion...", "T1 ", "T2", "T3", "T4" }));
-        jComboBoxTrimester.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxTrimester.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelBody.add(jComboBoxTrimester, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 120, 152, -1));
+        jTextFieldName.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldName.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldName.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelStatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelStatus.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelStatus.setText("Estado:");
-        jPanelBody.add(jLabelStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 120, -1, -1));
+        jLabelType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelType.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelType.setText("Tipo:");
 
-        jLabelCareer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelCareer.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelCareer.setText("Programa:");
-        jPanelBody.add(jLabelCareer, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 184, -1, -1));
+        jComboBoxType.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxType.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBoxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion...", "TECNICO", "TECNOLOGO", " " }));
+        jComboBoxType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jComboBoxType.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelYear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelYear.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelYear.setText("Año:");
-        jPanelBody.add(jLabelYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 184, 37, -1));
+        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
+        jPanelBody.setLayout(jPanelBodyLayout);
+        jPanelBodyLayout.setHorizontalGroup(
+            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
+                                .addComponent(jButtonClean)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonDelete))
+                            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                .addComponent(jLabelId)
+                                .addGap(47, 47, 47)
+                                .addComponent(jTextFieldId))
+                            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelName)
+                                    .addComponent(jLabelType))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldName)))
+                            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                .addComponent(jLabelHome)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                .addComponent(jButtonAdd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonUpdate)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
+        );
+        jPanelBodyLayout.setVerticalGroup(
+            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addComponent(jLabelHome)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelId)
+                            .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelName)
+                            .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelType)
+                            .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonAdd)
+                            .addComponent(jButtonUpdate))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonClean)
+                            .addComponent(jButtonDelete))
+                        .addGap(10, 10, 10))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
-        jLabelShift.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelShift.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelShift.setText("Jornada:");
-        jPanelBody.add(jLabelShift, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 184, -1, -1));
-
-        jComboBoxShift.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBoxShift.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxShift.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion...", "DIURNA ", "NOCTURNA ", "MIXTA" }));
-        jComboBoxShift.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxShift.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelBody.add(jComboBoxShift, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 184, 152, -1));
-
-        jComboBoxStatus.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBoxStatus.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion...", "ACTIVO", "INACTIVO" }));
-        jComboBoxStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelBody.add(jComboBoxStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 120, 174, -1));
-
-        jComboBoxCareer.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBoxCareer.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxCareer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBoxCareer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelBody.add(jComboBoxCareer, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 184, 164, -1));
-
-        jTextFieldYear.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldYear.setForeground(new java.awt.Color(0, 0, 0));
-        jTextFieldYear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldYear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelBody.add(jTextFieldYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 186, 174, -1));
-
-        getContentPane().add(jPanelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -324,13 +329,11 @@ public class JFrameCourses extends javax.swing.JFrame {
         {
             long idSelected = Long.parseLong(jTableCourses.getValueAt(rowSelected, 0).toString());
             try {
-                Course c = courseController.findById(idSelected);
+                Career c = careerController.findById(idSelected);
                 jTextFieldId.setText(String.valueOf(idSelected));
-                jTextFieldYear.setText(c.getYear());
-                jComboBoxCareer.getModel().setSelectedItem(c.getCareerId().getName());
-                jComboBoxStatus.getModel().setSelectedItem(c.getStatus());
-                jComboBoxShift.getModel().setSelectedItem(c.getShift());
-                jComboBoxTrimester.getModel().setSelectedItem(c.getTrimester());
+                jTextFieldName.setText(c.getName());
+                jComboBoxType.setSelectedItem(c.getType());
+                
 
                 jButtonAdd.setEnabled(false);
                 jButtonUpdate.setEnabled(true);
@@ -347,18 +350,13 @@ public class JFrameCourses extends javax.swing.JFrame {
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         try {
-            Course course = new Course();
-            course.setId(Long.parseLong(jTextFieldId.getText()));
-            course.setStatus(jComboBoxStatus.getSelectedItem().toString());
-            course.setTrimester(jComboBoxTrimester.getSelectedItem().toString());
-            course.setShift(jComboBoxShift.getSelectedItem().toString());
-            course.setYear(jTextFieldYear.getText());
+            Career career = new Career();
+            career.setId(Long.parseLong(jTextFieldId.getText()));
+            career.setName(jTextFieldName.getText());
+            career.setType(jComboBoxType.getSelectedItem().toString());
             
-            Career career = (Career) jComboBoxCareer.getSelectedItem();
-            course.setCareerId(career);
-            
-            courseController.insert(course);
-            MessageUtils.ShowInfoMessage("El curso creado exitosamente");
+            careerController.insert(career);
+            MessageUtils.ShowInfoMessage("La carrera creada exitosamente");
             fillTable();
             clean();
             
@@ -369,18 +367,13 @@ public class JFrameCourses extends javax.swing.JFrame {
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         try {
-            Course course = new Course();
-            course.setId(Long.parseLong(jTextFieldId.getText()));
-            course.setStatus(jComboBoxStatus.getSelectedItem().toString());
-            course.setTrimester(jComboBoxTrimester.getSelectedItem().toString());
-            course.setShift(jComboBoxShift.getSelectedItem().toString());
-            course.setYear(jTextFieldYear.getText());
+            Career career = new Career();
+            career.setId(Long.parseLong(jTextFieldId.getText()));
+            career.setName(jTextFieldName.getText());
+            career.setType(jComboBoxType.getSelectedItem().toString());
             
-            Career career = (Career) jComboBoxCareer.getSelectedItem();
-            course.setCareerId(career);
-           
-            courseController.update(course);
-            MessageUtils.ShowInfoMessage("El curso fue actualizado exitosamente");
+            careerController.update(career);
+            MessageUtils.ShowInfoMessage("La carrera fue actualizada exitosamente");
             fillTable();
             clean();
             
@@ -391,12 +384,12 @@ public class JFrameCourses extends javax.swing.JFrame {
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         try {
-            int option = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar el registro?", 
+            int option = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar la carrera?", 
                          "Confirmacion", JOptionPane.YES_NO_OPTION);
             if(option == JOptionPane.YES_OPTION)
             {
-                courseController.delete(Long.parseLong(jTextFieldId.getText()));
-                MessageUtils.ShowInfoMessage("El curso fue eliminado exitosamente");
+                careerController.delete(Long.parseLong(jTextFieldId.getText()));
+                MessageUtils.ShowInfoMessage("La carrera fue eliminada exitosamente");
                 fillTable();
             }
             clean();
@@ -409,12 +402,8 @@ public class JFrameCourses extends javax.swing.JFrame {
     public void clean()
     {
         jTextFieldId.setText("");
-        jTextFieldYear.setText("");
-        jComboBoxCareer.setSelectedIndex(0);
-        jComboBoxStatus.setSelectedIndex(0);
-        jTableCourses.clearSelection();
-        jComboBoxShift.setSelectedIndex(0);
-        jComboBoxTrimester.setSelectedIndex(0);
+        jTextFieldName.setText("");
+        jComboBoxType.setSelectedIndex(0);
         jButtonAdd.setEnabled(true);
         jButtonUpdate.setEnabled(false);
         jButtonDelete.setEnabled(false);
@@ -437,20 +426,21 @@ public class JFrameCourses extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameCareer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameCareer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameCareer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameCareer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameCourses().setVisible(true);
+                new JFrameCareer().setVisible(true);
             }
         });
     }
@@ -460,25 +450,19 @@ public class JFrameCourses extends javax.swing.JFrame {
     private javax.swing.JButton jButtonClean;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JComboBox<String> jComboBoxCareer;
-    private javax.swing.JComboBox<String> jComboBoxShift;
-    private javax.swing.JComboBox<String> jComboBoxStatus;
-    private javax.swing.JComboBox<String> jComboBoxTrimester;
-    private javax.swing.JLabel jLabelCareer;
+    private javax.swing.JComboBox<String> jComboBoxType;
     private javax.swing.JLabel jLabelHome;
     private javax.swing.JLabel jLabelIconPersa;
     private javax.swing.JLabel jLabelIconSena;
     private javax.swing.JLabel jLabelId;
-    private javax.swing.JLabel jLabelShift;
-    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelTitle;
-    private javax.swing.JLabel jLabelTrimester;
-    private javax.swing.JLabel jLabelYear;
+    private javax.swing.JLabel jLabelType;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableCourses;
     private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JTextField jTextFieldYear;
+    private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }
