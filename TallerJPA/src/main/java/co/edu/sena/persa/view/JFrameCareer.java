@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * Fecha: 28/04/2025
- * @author Sebastian Rodriguez
+ *
+ * @author Sebas
  */
 public class JFrameCareer extends javax.swing.JFrame {
     private ICareerController careerController = new CareerController();

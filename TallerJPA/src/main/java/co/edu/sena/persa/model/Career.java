@@ -113,7 +113,7 @@ public class Career implements Serializable {
 
     @Override
     public String toString() {
-        return name; // Devuelve el nombre de la carrera
+        return this.getName(); // Devuelve el nombre de la carrera
     }
     
 }
