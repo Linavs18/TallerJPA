@@ -40,6 +40,7 @@ public class JFrameHome extends javax.swing.JFrame {
 
         jPanelBody.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBody.setPreferredSize(new java.awt.Dimension(570, 440));
+        jPanelBody.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelSection.setBackground(new java.awt.Color(0, 48, 77));
 
@@ -71,9 +72,12 @@ public class JFrameHome extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanelBody.add(jPanelSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 0, -1, -1));
+
         jLabelTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTitle.setText("PANTALLA PRINCIPAL");
+        jPanelBody.add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jButtonCareer.setBackground(new java.awt.Color(57, 169, 0));
         jButtonCareer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -85,6 +89,7 @@ public class JFrameHome extends javax.swing.JFrame {
                 jButtonCareerActionPerformed(evt);
             }
         });
+        jPanelBody.add(jButtonCareer, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         jButtonCourses.setBackground(new java.awt.Color(57, 169, 0));
         jButtonCourses.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -96,6 +101,7 @@ public class JFrameHome extends javax.swing.JFrame {
                 jButtonCoursesActionPerformed(evt);
             }
         });
+        jPanelBody.add(jButtonCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
         jButtonExit.setBackground(new java.awt.Color(255, 51, 51));
         jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -107,46 +113,13 @@ public class JFrameHome extends javax.swing.JFrame {
                 jButtonExitActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
-        jPanelBody.setLayout(jPanelBodyLayout);
-        jPanelBodyLayout.setHorizontalGroup(
-            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabelTitle))
-                    .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jButtonCareer))
-                    .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jButtonCourses))
-                    .addComponent(jButtonExit))
-                .addGap(72, 72, 72)
-                .addComponent(jPanelSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanelBodyLayout.setVerticalGroup(
-            jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabelTitle)
-                .addGap(41, 41, 41)
-                .addComponent(jButtonCareer)
-                .addGap(65, 65, 65)
-                .addComponent(jButtonCourses)
-                .addGap(46, 46, 46)
-                .addComponent(jButtonExit))
-            .addComponent(jPanelSection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanelBody.add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
